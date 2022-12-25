@@ -10,25 +10,25 @@ suite('Functional Tests', function () {
   // this.timeout(5000);
   suite('Integration tests with chai-http', function () {
     // #1
-    // test('Test GET /hello with no name', function (done) {
-    //   chai
-    //     .request(server)
-    //     .get('/hello')
-    //     .end(function (err, res) {
-    //       assert.equal(res.status, 200);
-    //       assert.equal(res.text, 'hello Guest');
-    //       done();
-    //     });
-    // });
+    test('Test GET /hello with no name', function (done) {
+      chai
+        .request(server)
+        .get('/hello')
+        .end(function (err, res) {
+          assert.equal(res.status, 200);
+          assert.equal(res.text, 'hello Guest');
+          done();
+        });
+    });
     // #2
     test('Test GET /hello with your name', function(done) {
       // Don't forget the callback...
       chai
         .request(server) // 'server' is the Express App
-        .get('/hello?name=Ajay') /** <=== Put your name in the query **/
+        .get('/hello?name=x_yz') /** <=== Put your name in the query **/
         .end(function(err, res) {
           assert.equal(res.status, 200);
-          assert.equal(res.text, 'hello Ajay' /** <==  Put your name here **/);
+          assert.equal(res.text, 'hello x_yz' /** <==  Put your name here **/);
           done(); // Always call the 'done()' callback when finished.
         });
     });
